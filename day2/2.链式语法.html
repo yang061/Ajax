@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let obj = {
+        name: '张三',
+        age: 18,
+        sex: '男',
+      }
+      //   给对象添加方法
+      obj.setName = function (str) {
+        this.name = str
+        return this
+      }
+      obj.setAge = function (num) {
+        this.age = num
+        return this //返回this后当前结果为obj，可以通过点（.）来调用方法
+      }
+      obj.setSex = function (str) {
+        this.sex = str
+      }
+      //   调用方法
+      obj.setAge(22).setName('李四').setSex('女')
+      console.log(obj)
+    </script>
+  </body>
+</html>

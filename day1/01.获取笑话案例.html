@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      .getJoke {
+        padding: 10px 20px;
+        text-align: center;
+        color: white;
+        background-color: skyblue;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .joke-container {
+        margin: 10px auto;
+        width: 300px;
+        height: 300px;
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="button" value="点我看笑话" class="getJoke" />
+    <div class="joke-container"></div>
+    <script>
+      /*    随机获取笑话的接口
+      
+      - 请求地址：https://autumnfish.cn/api/joke
+      - 请求方法：get
+      - 请求参数：无
+      - 响应内容：随机笑话 */
+      // 1.点击按钮
+      document.querySelector('.getJoke').addEventListener('click', function () {
+        // 2.ajax发送请求
+        // (1) 创建xhr对象
+        let xhr = new XMLHttpRequest()
+        // (2) 设置请求方法 和请求地址
+        xhr.open('get', 'https://autumnfish.cn/api/joke')
+        // (3) 发送请求
+        xhr.send()
+        // (4) 注册响应事件
+        xhr.onload = function () {
+          // 3.服务器响应数据之后，把数据显示到页面（渲染页面）
+          document.querySelector('.joke-container').innerHTML = xhr.responseText
+        }
+      })
+    </script>
+  </body>
+</html>

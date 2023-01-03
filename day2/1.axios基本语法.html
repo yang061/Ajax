@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button class="btn1">基本使用</button>
+    <button class="btn2">get请求</button>
+    <button class="btn3">post请求</button>
+    <script src="./axios.js"></script>
+    <script>
+      // 基本使用
+      document.querySelector('.btn1').onclick = function () {
+        //then()成功执行的语句，相当于onload() catch()请求失败执行的语句
+        axios
+          .get('https://autumnfish.cn/api/joke/list?num=10')
+          .then((res) => {
+            console.log(res)
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+      }
+      // 发送get请求
+      document.querySelector('.btn2').onclick = function () {}
+      // 发送post请求
+      document.querySelector('.btn3').onclick = function () {}
+    </script>
+  </body>
+</html>
